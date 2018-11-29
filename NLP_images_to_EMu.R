@@ -84,3 +84,59 @@ MM2$Multimedia#looks weird but when you write.csv, it's ok
 #3f batch import "LA_MM.csv" in Emu's Multimedia module
 
 #3g: Create a spreadsheet with Catalogue IRN and MMGrouping and CEGrouping from EMu "List View"
+
+
+#step 4: Creating spreadsheet for Collection EVent (CE) batch impor####
+#=======================================================================
+#4a: Grouping (aka observational unit) files by unique plants####
+ce<-cat2 %>% 
+  mutate(Obs.Unit.ce = group_indices_(cat2, .dots=c("ColEarliestDateCollected"," ColMammalsCollectorRef.irn", "ColSiteLocationRef.irn"))) 
+names(ce)
+
+#4b: Creating new EMu fields (columns)
+ce$ColCollectionType<-"Sighting"
+ce$ColCollectionMethod<-"Photograph"
+ce$ColParticipantRole_tab1<-"Collector"
+ce$SigHowSighted<-"Camera"
+ce$AdmPublishWebNoPassword<-"Yes"
+ce$AdmPublishWebPassword<-"Yes"	
+ce$SecDepartment_tab1<-"Action"
+
+#4c: select the field of interest
+ce2<-select(ce, ColCollectionType,	ColCollectionMethod,	ColSiteLocationRef.irn,
+            ColMammalsCollectorRef.irn, ColParticipantRole_tab1,	SigHowSighted,
+            AdmPublishWebNoPassword,	AdmPublishWebPassword,	SecDepartment_tab1,	
+            ColEarliestDateCollected, Obs.Unit.ce)
+
+as.data.frame(ce2)
+
+names(ce2)#should always be 11 columns
+
+#4d: Rename some column names as EMu's CE fields
+setnames(ce2, old=c( "ColSiteLocationRef.irn", "ColParticipantRole_tab1", 
+                     "SecDepartment_tab1", "Obs.Unit.ce",  "ColEarliestDateCollected", "ColMammalsCollectorRef.irn"), 
+         
+         new=c("ColSiteRef.irn", "ColParticipantRole_tab(1)", 
+               "SecDepartment_tab(1)","NteText0","ColDateVisitedFrom","ColParticipantRef_tab(1).irn"))
+
+names(ce2)
+
+
+#4e: Pick only the unique Obesrvational Units
+#sort by specimen-importatnt step when the same specimen numbers are scattered in the df
+ce2<-ce2[order(ce2$NteText0),]
+#creates a new columna
+ce2$unique<-sequence(rle(ce2$NteText0)$length)
+#subset unique=1
+ce3<-ce2[ce2$unique==1,]
+#delete column "unique"
+ce4<- subset( ce3, select = - unique)
+names(ce4)
+nrow(ce4)
+
+#4f: Create a csv file
+#write.csv(ce4, "LA_CE.csv",row.names=FALSE)
+
+#4g:Batch import LA_CE.csv" in EMu's CE Module 
+
+4i: Create a file with CE IRN and CEGrouping
