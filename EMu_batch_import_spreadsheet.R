@@ -1,5 +1,6 @@
 #-------------------------------------------------------------------
 #Workflow to upload NLP images submitted through the website
+#steps 1-5
 #-------------------------------------------------------------------
 
 #STEP 1:Set working directory and upload the raw data####
