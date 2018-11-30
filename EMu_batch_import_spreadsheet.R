@@ -148,7 +148,7 @@ names(cat4)#should always have 14
 4i: Create a file with Catalogue IRN and CatalogueGrouping and CEGrouping
 
 
-#step 5: Creating spreadsheet for Collection EVent (CE) batch impor####
+#step 5: Creating spreadsheet for Collection Event (CE) batch impor####
 #=======================================================================
 #5a: Grouping (aka observational unit) files by unique plants#
 ce<-cat2 %>% 
@@ -201,4 +201,4 @@ nrow(ce4)
 
 #5g:Batch import LA_CE.csv" in EMu's CE Module 
 
-5h: Create a file with CE IRN and CEGrouping
+#5h: Create a file with CE.IRN and CEGrouping
