@@ -14,3 +14,4 @@ Step 6: Attach MM to Catalogue record<br />
 Step 7: Attach CE to Catalog_sightins<br />
 Step 8: Attach Taxonomy to Catalog_sightins<br />
 Step 9: Double check to make sure that Taxnomy was attached correctly<br />
+Issue: Double checking taxonomy names - need to figure out how to compare genus and epithet, after removing author's name
