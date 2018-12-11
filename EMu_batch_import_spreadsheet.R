@@ -8,7 +8,7 @@
 
 localDir <- Sys.getenv("LOCAL_DIR")
 origdir <- getwd()
-
+list.files()
 raw<-read.csv("LA_00NOV2018.csv")
 
 #STEP 2:Format raw file####
@@ -72,7 +72,7 @@ setnames(MM2, old=c("DetResourceDetailsDescription_tab1", "DetSubject_tab1", "Se
                "MulMultimediaCreatorRef_tab(2).irn", "DetResourceDetailsDate0(1)"))
 head(MM2)
 names(MM2) #should always be 16 total
-nrow(MM2)#90
+nrow(MM2)#98
 
 
 #3e: Replace : to \
@@ -145,7 +145,8 @@ names(cat4)#should always have 14
 
 #4h: Batch import LA_CAT.csv" in EMu's Catalogue Module 
 
-4i: Create a file with Catalogue IRN and CatalogueGrouping and CEGrouping
+#4i: Create a file with Catalogue IRN and CatalogueGrouping 
+#and CEGrouping, "LA_CATirn_Grouping.csv"
 
 
 #step 5: Creating spreadsheet for Collection Event (CE) batch impor####
@@ -201,4 +202,4 @@ nrow(ce4)
 
 #5g:Batch import LA_CE.csv" in EMu's CE Module 
 
-#5h: Create a file with CE.IRN and CEGrouping
+#5h: Create a file with CE.IRN and CEGrouping "LA_CEirn_with_Grouping.csv"
