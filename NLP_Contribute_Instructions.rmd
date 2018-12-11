@@ -1,9 +1,14 @@
 ---
+output: 
+  html_document: 
+    keep_md: yes
+---
+---
 title: "NLP_Contribute_Instructions"
 author: "Tomomi Suwa"
 date: "December 11, 2018"
-output: html_document
----
+output: github_document
+  ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
