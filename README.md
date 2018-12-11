@@ -9,4 +9,8 @@ Step 3: Create a spreadsheet for MM batch import
 Step 4: Create a spreadsheet for Catalogue batch import
 Step 5: Create a spreadsheet for CE batch import
 
-# Steps 6-7: Attach MM, CE, Taxonomy records to Catalogue modules (Use "EMu_attachments.R")
+# Steps 6-9: Attach MM, CE, Taxonomy records to Catalogue modules (Use "Inter_module_attachments.R")
+Step 6: Attach MM to Catalogue record
+Step 7: Attach CE to Catalog_sightins
+Step 8: Attach Taxonomy to Catalog_sightins
+Step 9: Double check to make sure that Taxnomy was attached correctly

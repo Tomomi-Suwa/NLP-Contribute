@@ -5,7 +5,7 @@
 #See Steps 1-5 to create batch import spreadsheets
 #-------------------------------------------------------------------
 
-#STEP 6:Attach MM to Catalogue records
+#STEP 6:Attach MM to Catalogue records####
 #============================================================
 library(tidyr)
 #6a:Create and upload MM file to spread
@@ -125,7 +125,7 @@ Attach.TAX3<-unique(Attach.TAX2)
 nrow(Attach.TAX3)
 #write.csv(Attach.TAX3, "LA_Attach_TAX_CAT.csv", row.names=FALSE)
 
-#Step 9: Double check to make sure that Taxnomy was attached corectly####
+#Step 9: Double check to make sure that Taxnomy was attached correctly####
 #=======================================================================
 #9a: Add CATirn IRN number to raw ("LA_00JUL2018.csv") file by 
 #joining raw and CATirn dataframe
