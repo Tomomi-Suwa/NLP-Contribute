@@ -102,7 +102,7 @@ cat$CatCatalog<-"Botany"
 cat$CatCatalogSubset<-"Sighting"
 cat$GeoSeries<- "NLP"
 cat$GeoCatalogNo<-1:nrow(cat)+5013000
-cat$CatMammalsProject_tab1<-"Live Plant Photos"
+cat$CatMammalsProject_tab1<-"Neotropical Live Plants"
 cat$SecDepartment_tab1<-"Action"
 cat$AdmPublishWebNoPassword<- "Yes"
 cat$AdmPublishWebPassword<- "Yes"
