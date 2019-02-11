@@ -85,7 +85,7 @@ MM2$Multimedia#looks weird but when you write.csv, it's ok
 
 #3f batch import "LA_MM.csv" in Emu's Multimedia module
 
-#3g: Create a spreadsheet with MM.IRN MMGrouping and CEGrouping from EMu "List View"
+#3g: Manyally create a spreadsheet with MM.IRN MMGrouping and CEGrouping from EMu "List View"
 
 #step 4: Creating spreadsheet for Catalogue batch import####
 #==================================================================
