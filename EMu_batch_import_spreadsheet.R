@@ -34,6 +34,8 @@ names(raw3)
 
 #STEP3: Creating spreadsheet for Multimedia batch import####
 #==================================================================
+#IMPORTANT: Before importing the images, save all the images in LightRoom with correct orientatoin. 
+#Image orientatoin may not show up correctly otherwise
 #3a: pick columns of interests
 library(dplyr)
 MM<-select(raw3, DatePhotographed,NewFileName, PartyIRN,Grouping)
