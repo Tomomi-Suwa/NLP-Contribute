@@ -86,7 +86,8 @@ setnames(AttachCE2, old=c( "CatIRN", "Ceirn"), new=c("irn", "CatSightingsEventsR
 
 #STep 8 Attach Taxonomy to Catalog_sightins####
 #=======================================================================
-#Merge TAXirn (from raw dataframe)  and CATirn (from CAT_irn_with_groups.csv) by Grouping
+#Merge TAXirn (from raw dataframe)  and CATirn (from CAT_irn_with_groups.csv, three columns "CATirn"	"CE_Group"	"MMnote"
+) by Grouping
 #8a: Format CATirn 
 CATirn.df<-read.csv("LA_CATirn_Grouping.csv")
 head(CATirn.df)
