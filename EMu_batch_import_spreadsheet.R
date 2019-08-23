@@ -17,7 +17,7 @@ raw<-read.csv("LA_00NOV2018.csv")
 #2b:Rotate the photos to the correct orientation, upload all the images in LightRoom and save.as jpg. 
 #This step ensures that images displays correctly in EMu
 #2c:Add the updated file name on raw dataframe
-NewFileName<-list.files(pattern = "\\.jpg$")
+NewFileName<-list.files(pattern = "\\.jpg$|\\.JPG$")
 names(raw)
 #sort by File.Name
 raw2 <- raw[order(raw$FileName),] 
