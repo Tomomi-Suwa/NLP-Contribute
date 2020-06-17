@@ -93,10 +93,10 @@ MM2$Multimedia#looks weird but when you write.csv, it's ok
 #==================================================================
 #4a: select the columns of interst
 library("dplyr")
-cat<-select(raw3, Grouping,PartyIRN,DatePhotographed,SiteIRN)
+cat<-select(raw3, Grouping,PartyIRN,DatePhotographed,SiteIRN, TaxIRN)
 
-setnames(cat, old=c( "DatePhotographed", "PartyIRN", "Grouping","SiteIRN"), 
-         new=c("ColEarliestDateCollected", "ColMammalsCollectorRef.irn", "NotFisNotes01", "ColSiteLocationRef.irn"))
+setnames(cat, old=c( "DatePhotographed", "PartyIRN", "Grouping","SiteIRN", "TaxIRN"), 
+         new=c("ColEarliestDateCollected", "ColMammalsCollectorRef.irn", "NotFisNotes01", "ColSiteLocationRef.irn", "IdeTaxonRef_tab(1).irn"))
 
 #4b: Creating new EMu fields (columns)
 cat$CatDepartment<-"Action"
