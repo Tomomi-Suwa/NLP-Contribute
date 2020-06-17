@@ -86,44 +86,45 @@ setnames(AttachCE2, old=c( "CatIRN", "Ceirn"), new=c("irn", "CatSightingsEventsR
 
 #STep 8 Attach Taxonomy to Catalog_sightins####
 #=======================================================================
+#NOTE: If you already uploaded TaxonomyIRN column when uploading Catalogue spreadsheet, this skip this step. Already done.
 #Merge TAXirn (from raw dataframe)  and CATirn (from CAT_irn_with_groups.csv, three columns "CATirn"	"CE_Group"	"MMnote"
 ) by Grouping
 #8a: Format CATirn 
-CATirn.df<-read.csv("LA_CATirn_Grouping.csv")
-head(CATirn.df)
+#CATirn.df<-read.csv("LA_CATirn_Grouping.csv")
+#head(CATirn.df)
 
 #set the Grouping column as character
-CATirn.df$CATGroup<-as.character(CATirn.df$CATGroup)
+#CATirn.df$CATGroup<-as.character(CATirn.df$CATGroup)
 #select only necessary columns
-CATirn.df<-CATirn.df[, c("CatIRN", "CATGroup")]
+#CATirn.df<-CATirn.df[, c("CatIRN", "CATGroup")]
 
 #8b:Format Taxirn
 #subset only necessary raws
-str(raw)
-TAX<-raw[, c("TaxIRN", "Grouping")]
-TAX$Grouping<-as.character((TAX$Grouping))
-library(dplyr)
+#str(raw)
+#TAX<-raw[, c("TaxIRN", "Grouping")]
+#TAX$Grouping<-as.character((TAX$Grouping))
+#library(dplyr)
 
 #8c: left_joining CATirn and TAXirn
-Attach.TAX<-CATirn.df %>%left_join(TAX, by=c("CATGroup"="Grouping"))
-names(Attach.TAX)
+#Attach.TAX<-CATirn.df %>%left_join(TAX, by=c("CATGroup"="Grouping"))
+#names(Attach.TAX)
 
 #8d: Convert NA as blank (use only if there were no IRN for given taxonomy)
-Attach.TAX$TaxIRN<-as.character((Attach.TAX$TaxIRN))
-Attach.TAX$TaxIRN[is.na(Attach.TAX$TaxIRN)]<-" "
+#Attach.TAX$TaxIRN<-as.character((Attach.TAX$TaxIRN))
+#Attach.TAX$TaxIRN[is.na(Attach.TAX$TaxIRN)]<-" "
 
 #8e:select necesary columns rename and re-arrange them
-Attach.TAX2<-Attach.TAX[,c("CatIRN", "TaxIRN")]
-library(data.table)
-setnames(Attach.TAX2, old=c("TaxIRN", "CatIRN"), 
-         new=c("IdeTaxonRef_tab(1).irn","irn"))
+#Attach.TAX2<-Attach.TAX[,c("CatIRN", "TaxIRN")]
+#library(data.table)
+#setnames(Attach.TAX2, old=c("TaxIRN", "CatIRN"), 
+#         new=c("IdeTaxonRef_tab(1).irn","irn"))
 #re-arrange the order
-Attach.TAX2<-Attach.TAX2[c("irn","IdeTaxonRef_tab(1).irn")]
-head(Attach.TAX2)
+#Attach.TAX2<-Attach.TAX2[c("irn","IdeTaxonRef_tab(1).irn")]
+#head(Attach.TAX2)
 
 #8f: only get unique CATirn 
-Attach.TAX3<-unique(Attach.TAX2)
-nrow(Attach.TAX3)
+#Attach.TAX3<-unique(Attach.TAX2)
+#nrow(Attach.TAX3)
 #write.csv(Attach.TAX3, "LA_Attach_TAX_CAT.csv", row.names=FALSE)
 
 #Step 9: Double check to make sure that Taxnomy was attached correctly####
